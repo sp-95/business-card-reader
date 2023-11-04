@@ -1,9 +1,7 @@
-import click
 import cv2
 import pytesseract
 import re
 import spacy
-
 
 def preprocess_image(image_path):
     image = cv2.imread(image_path)
@@ -34,27 +32,20 @@ def extract_phone(text):
 
 def extract_company(text):
     # Load English tokenizer, tagger, parser, NER and word vectors
-
     nlp = spacy.load("en_core_web_md")
     doc = nlp(text)
-
     # Extract names
     return [ent.text for ent in doc.ents if ent.label_ == "ORG"]
 
 
 def extract_names(text):
     # Load English tokenizer, tagger, parser, NER and word vectors
-
     nlp = spacy.load("en_core_web_md")
     doc = nlp(text)
-
     # Extract names
     return [ent.text for ent in doc.ents if ent.label_ == "PERSON"]
 
-
-@click.command()
-@click.argument("image")
-def main(image):
+def ocr_extract(image):
     processed_image = preprocess_image(image)
     text = extract_text_from_image(processed_image)
     names = extract_names(text)
@@ -67,7 +58,4 @@ def main(image):
     print(f"Extracted phones: {phones}")
     print(f"Extracted company: {company}")
 
-    return [company, names, phones, emails]
-
-if __name__ == "__main__":
-    main()
+    return [company, names, emails, phones]

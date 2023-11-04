@@ -8,8 +8,6 @@ pip install virtualenv
 virtualenv .venv
 ```
 
-Or you can create a conda environment
-
 ### Activate virtual environment
 You need to run this every time you want to run the project.
 ```
