@@ -67,8 +67,7 @@ def main(image):
     print(f"Extracted phones: {phones}")
     print(f"Extracted company: {company}")
 
-    return names, emails, phones, company
-
+    return [company, names, phones, emails]
 
 if __name__ == "__main__":
     main()
