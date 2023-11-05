@@ -1,5 +1,7 @@
-click
-numpy
+fastapi
 opencv-python-headless
+pandas
 pytesseract
 spacy
+sqlalchemy
+uvicorn
