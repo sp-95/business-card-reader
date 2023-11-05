@@ -7,7 +7,7 @@ import ocr
 # Define your data as a list of lists
 data = [
     ['company', 'name', 'phone', 'email'],
-    ['Microsoft', 'Bill', '1234567890', 'bill@microsoft.com'],
+    ['Microsoft', 'Bill', '1234567890', 'bill@microsoft.com'], # example row entry
 ]
 
 def createcsv(image, csvpath):
@@ -23,8 +23,6 @@ def createdf(csvpath):
     print(df)
     return df
 
-# Create a SQLAlchemy engine
-# engine = create_engine('postgresql+psycopg2://your_username:your_password@/cloudsql/your_connection_name/your_database')
 
 # Write the DataFrame to your SQL table
 def postsql(engine, df):
