@@ -23,3 +23,8 @@ pip install -r requirements.txt
 ```
 python -m main <image_path>
 ```
+
+### To run the FastAPI server
+```
+uvicorn src.main:app --reload
+```
